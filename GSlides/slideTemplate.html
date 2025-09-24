@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSlides</title>
+    <link rel="stylesheet" href="slideUi.css">
+</head>
+<body>
+    <!--The chevronLeftContainer Div and chevronRightContainer Div hold the back and forwards arrows-->
+    <div class="chevronLeftContainer">
+        <div class="chevronLeftMask"></div>
+    </div>
+    <div class="chevronRightContainer">
+        <div class="chevronRightMask"></div>
+    </div>
+
+    <!--This is the actual slide I put no positioning arguments on it, except that it will resize to always fit a aspect ratio-->
+    <div class="slideShow">
+    <!--This is the actual slide, put every thing in here-->
+    <div class="slideSector"></div>
+    <div class="slideSector hiddenSlide"></div>
+    </div>
+    <script src="slideShowManager.js"></script>
+</body>
+</html>

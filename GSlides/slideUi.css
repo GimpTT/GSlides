@@ -1,0 +1,192 @@
+body,html{
+    padding: 0;
+    margin: 0;
+    background-color: #222222;
+    overflow-x: hidden;
+    
+}
+.slideshow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-x: hidden;
+}
+.slideSector{
+    /*Change aspect ratio below and to prevent ovee flow change it in the max-width formula*/
+    aspect-ratio: 16 / 9;
+    width: calc(100% - 20px);  
+    max-height: calc(100vh - 20px);
+    max-width: calc((100vh - 20px) * 16 / 9); 
+    flex: 0 0 auto;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px #00000035;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.chevronLeftContainer{
+    /*Size of the back Btn*/
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: calc(50vh - 64px);
+    left: 64px;
+    border-radius: 64px;
+    /*The Next 2 lines hold the inital state of the back Btn background*/
+    background-color: #2222229a;
+    opacity: 0.8;
+    z-index: 1000;
+    transition: all ease 0.3s;
+}
+.chevronLeftContainer:hover{
+    /*The Next 2 lines hold the hover state of the back Btn background*/
+    background-color: #303030c8;
+    opacity: 1;
+}
+.chevronLeftMask{
+    /*Size of the Arrow MUST MATCH THE chevronLeftContainer's size*/
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    /*The Next 2 lines hold the inital state of the back Btn arrow*/
+    background-color: #ffffffc8;
+    opacity: 0.8;
+    /*This is the .svg for the back arrow*/
+    -webkit-mask-image: url("iconsGallery/chevronBack.svg");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+
+    mask-image: url("iconsGallery/chevronBack.svg");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    transition: all ease 0.3s;
+}
+.chevronLeftMask:hover{
+    /*The Next 2 lines hold the hover state of the back Btn arrow*/
+    background-color: #353535e4;
+    opacity: 1;
+}
+
+.chevronRightContainer{
+    /*Size of the Forward Btn*/
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: calc(50vh - 64px);
+    right: 64px;
+    border-radius: 64px;
+    /*The Next 2 lines hold the inital state of the forward Btn background*/
+    background-color: #2222229a;
+    opacity: 0.8;
+    transition: all ease 0.3s;
+    z-index: 1000;
+}
+.chevronRightContainer:hover{
+    /*The Next 2 lines hold the hover state of the forward Btn background*/
+    background-color: #303030c8;
+    opacity: 1;
+}
+.chevronRightMask{
+    /*Size of the Arrow MUST MATCH THE chevronRightContainer's size*/
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    /*The Next 2 lines hold the inital state of the forward Btn arrow*/
+    background-color: #ffffffc8;
+    opacity: 0.8;
+    /*This is the .svg for the forward arrow*/
+    -webkit-mask-image: url("iconsGallery/chevronForward.svg");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+
+    mask-image: url("iconsGallery/chevronForward.svg");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    transition: all ease 0.3s;
+}
+.chevronRightMask:hover{
+    /*The Next 2 lines hold the hover state of the forward Btn arrow*/
+    background-color: #353535e4;
+    opacity: 1;
+}
+
+/* Do not touch this class it is code critical*/
+.hiddenSlide{
+    display: none;
+}
+@keyframes slideIn {
+    0%{
+        transform: translateX(100vw) scale(0.8);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0vw) scale(1);
+        opacity: 1;
+    }
+}
+.slideInAnimationClass{
+    animation: slideIn 1s ease 1 forwards;
+}
+
+.slideInAnimationReverseClass{
+    animation: slideIn 1s ease 1 reverse;
+}
+
+@keyframes slideOut {
+    0%{
+        transform: translateX(0vw) scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-100vw) scale(0.8);
+        opacity: 0;
+    }
+}
+.slideOutAnimationClass{
+    animation: slideOut 1s ease 1 forwards;
+}
+.slideOutAnimationReverseClass{
+    animation: slideOut 1s ease 1 reverse;
+}
+
+@keyframes finished {
+    0%{
+        transform: scale(0.8);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.slideDoneClass{
+    animation: finished 1s ease 1 forwards;
+}
+
+
+@media (max-width:720px) {
+    .chevronLeftMask{
+        width: 48px;
+        height: 48px;
+    }
+    .chevronLeftContainer{
+        width: 48px;
+        height: 48px;
+        left: 48px;
+    }
+    .chevronRightMask{
+        width: 48px;
+        height: 48px;
+    }
+    .chevronRightContainer{
+        width: 48px;
+        height: 48px;
+        right: 48px;
+    }
+}
